@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:src/team.properties"></context:property-placeholder>
+    <!-- Define your beans here -->
+    <beans>
+        <bean id = "myFortuneService" class="src.practicePack.HappyFortuneService">
+
+        </bean>
+
+        <bean id = "Cricket" class="src.practicePack.CricketCoach">
+            <property name="fortuneService" ref="myFortuneService"></property>
+            <property name="emailAddress" value="${CricketCoach.email}"></property>
+            <property name="team" value="${CricketCoach.team}"></property>
+        </bean>
+        <bean id = "newCoach" class="src.practicePack.BaseBallCoach">
+            <constructor-arg ref = "myFortuneService" />
+        </bean>
+
+        <bean id="myCoach" class="src.practicePack.TrackCoach">
+            <constructor-arg ref = "myFortuneService" />
+        </bean>
+    </beans>
+</beans>
+
+
+
+
+
