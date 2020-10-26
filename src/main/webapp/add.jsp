@@ -16,5 +16,6 @@
     <input type="checkbox" name="mark">
     <input type="submit">
 </form>
+Result is : <%= request.getAttribute("result")%>
 </body>
 </html>

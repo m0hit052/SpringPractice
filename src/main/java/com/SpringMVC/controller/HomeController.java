@@ -2,6 +2,10 @@ package com.SpringMVC.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -11,8 +15,15 @@ public class HomeController {
     }
 
     @RequestMapping("/add")
-    public String Add() {
-        return "add";
+    public ModelAndView Addition(HttpServletRequest request,HttpServletResponse response) {
+        int first = Integer.parseInt(request.getParameter("Input 1"));
+        int second = Integer.parseInt(request.getParameter("Input 2"));
+        int result = first+second;
+
+        ModelAndView view = new ModelAndView();
+        view.setViewName("add");
+        view.addObject("result",result);
+        return view;
     }
 
     @RequestMapping("/showForm")
