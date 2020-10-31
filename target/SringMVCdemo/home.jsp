@@ -13,5 +13,7 @@
 <body>
 <H1>I am Home</H1>
 <a href="/SringMVCdemo_war_exploded/showForm">Take me to form</a>
+<br><br>
+<a href="/SringMVCdemo_war_exploded/student/showform">Take me to Student Registration</a>
 </body>
 </html>

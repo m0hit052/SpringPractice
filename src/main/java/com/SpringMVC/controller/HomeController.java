@@ -1,10 +1,14 @@
 package com.SpringMVC.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -15,15 +19,10 @@ public class HomeController {
     }
 
     @RequestMapping("/add")
-    public ModelAndView Addition(HttpServletRequest request,HttpServletResponse response) {
-        int first = Integer.parseInt(request.getParameter("Input 1"));
-        int second = Integer.parseInt(request.getParameter("Input 2"));
+    public String Addition(@RequestParam("Input 1") Integer first, @RequestParam("Input 2") Integer second, Model model) {
         int result = first+second;
-
-        ModelAndView view = new ModelAndView();
-        view.setViewName("add");
-        view.addObject("result",result);
-        return view;
+        model.addAttribute("result",result);
+        return "add";
     }
 
     @RequestMapping("/showForm")
