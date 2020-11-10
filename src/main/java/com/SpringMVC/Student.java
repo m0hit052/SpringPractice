@@ -1,9 +1,7 @@
 package com.SpringMVC;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.ArrayList;
+
 import java.util.LinkedHashMap;
-import java.util.List;
 
 public class Student {
     private String firstName;
